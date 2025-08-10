@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Xinyuan Liu / Research"
+title                    : "Xinyuan Liu"
 title_separator          : "-"
 name                     : &name "Xinyuan Liu"
 description              : &description "PhD Student in HCI Aalborg University Copenhagen, Denmark"
