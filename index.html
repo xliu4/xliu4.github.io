@@ -223,8 +223,18 @@
       .profile-photo {
         grid-row: 1 / 3;
         width: 110px;
-        min-height: unset;
-        aspect-ratio: 1;
+        aspect-ratio: unset;
+        align-self: stretch;
+        min-height: 110px;
+      }
+      .profile-photo img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      .photo-placeholder {
+        height: 100%;
+        min-height: 110px;
       }
       .sidebar-info {
         align-self: end;
@@ -337,4 +347,4 @@
     <!-- ========================================================
       REPLACE: Your name, institution, and email in the footer
     ======================================================== -->
-    <p>Your Name · Aalborg University · <a href="/cdn-cgi/l/email-protection#b6cfd9c3f6c3d8
+    <p>Xinyuan Liu · Human-Computer Interaction · <a href="/cdn-cgi/l/email-protection#b6cfd9c3f6c3d8
