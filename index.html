@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #FAFAF8;
+      --surface:      #FFFFFF;
+      --border:       #E5E0D8;
+      --text:         #1A1714;
+      --muted:        #7A7470;
+      --accent:       #4F6D8A;
+      --accent-hover: #3D5670;
+      --font-serif:   'Lora', Georgia, serif;
+      --font-sans:    'DM Sans', sans-serif;
+      --sidebar-w:    180px;
+      --gap:          3rem;
+      --max-w:        860px;
+      --side-pad:     2rem;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body { min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* Nav */
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--side-pad);
+      height: 52px;
+    }
+    .nav-name {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    /* Uncomment when ready:
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; margin-left: auto; }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--accent); }
+    */
+
+    /* Main */
+    main {
+      flex: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 4rem var(--side-pad) 5rem;
+      width: 100%;
+    }
+
+    /* Two-column layout */
+    .layout {
+      display: grid;
+      grid-template-columns: var(--sidebar-w) 1fr;
+      gap: var(--gap);
+      align-items: start;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      animation: fadeUp 0.5s ease both;
+    }
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-placeholder {
+      width: 100%;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      padding: 8px;
+      line-height: 1.5;
+      min-height: 180px;
+    }
+    .sidebar-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .sidebar-name {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--text);
+    }
+    .sidebar-role {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 12.5px;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.15s;
+      line-height: 1.4;
+    }
+    .sidebar-link:hover { color: var(--accent-hover); }
+    .sidebar-link svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+
+    /* Bio */
+    .content {
+      animation: fadeUp 0.5s ease 0.08s both;
+      padding-top: 0.15rem;
+    }
+    .content .bio {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.85;
+    }
+    .content .bio p + p {
+      margin-top: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem var(--side-pad);
+    }
+    footer p {
+      font-size: 12px;
+      color: var(--muted);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* Fade-in */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 560px) {
+      :root { --side-pad: 1.25rem; }
+      .layout { grid-template-columns: 1fr; gap: 2rem; }
+      .profile-photo { width: 110px; min-height: unset; }
+      .sidebar { flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 1rem; }
+      .sidebar-info, .sidebar-links { flex: 1; min-width: 130px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-name" href="#">Your Name</a>
+      <!-- Uncomment when you have content for these pages:
+      <ul class="nav-links">
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Publications</a></li>
+        <li><a href="#">CV</a></li>
+      </ul>
+      -->
+    </div>
+  </nav>
+
+  <main>
+    <div class="layout">
+
+      <aside class="sidebar">
+        <div class="profile-photo">
+          <!-- Replace with: <img src="photo.jpg" alt="Your Name" /> -->
+          <div class="photo-placeholder">your photo here</div>
+        </div>
+        <div class="sidebar-info">
+          <p class="sidebar-name">Your Name</p>
+          <p class="sidebar-role">PhD Researcher<br>Aalborg University</p>
+        </div>
+        <div class="sidebar-links">
+          <a class="sidebar-link" href="mailto:you@university.edu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <polyline points="2,4 12,13 22,4"/>
+            </svg>
+            Email
+          </a>
+          <a class="sidebar-link" href="https://scholar.google.com/citations?user=YOURID" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+            Google Scholar
+          </a>
+          <a class="sidebar-link" href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="3"/>
+              <line x1="8" y1="11" x2="8" y2="16"/>
+              <line x1="8" y1="8" x2="8.01" y2="8"/>
+              <line x1="12" y1="16" x2="12" y2="11"/>
+              <path d="M12 13.5a2.5 2.5 0 0 1 5 0V16"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a class="sidebar-link" href="https://bsky.app/profile/yourhandle.bsky.social" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 8.5c-1.5-3-5-5.5-8-4 -3 1.5-3.5 5.5-1 8l9 8.5 9-8.5c2.5-2.5 2-6.5-1-8 -3-1.5-6.5 1-8 4z"/>
+            </svg>
+            Bluesky
+          </a>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="bio">
+          <p>Write a short bio here. A few sentences about what you study, where your interests sit, and what draws you to this work. Keep it human — this is often the first thing people read.</p>
+          <p>You can add a second paragraph if you want to say a bit more — current projects, methodological approach, or anything else that feels relevant.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Your Name · Aalborg University · <a href="mailto:you@university.edu">you@university.edu</a></p>
+  </footer>
+
+</body>
+</html>
