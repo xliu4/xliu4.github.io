@@ -260,15 +260,20 @@
       .profile-photo {
         grid-row: 1 / 3;
         width: 110px;
-        aspect-ratio: unset;
-        align-self: stretch;
-        min-height: 110px;
+        height: 110px; 
+        align-self: start; 
       }
       .profile-photo img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;  
+      /* --- Prevents Saving --- */
+      pointer-events: none; /* Disables right-click and tap interactions */
+      -webkit-touch-callout: none; /* Disables long-press menu on iOS */
+      user-select: none; /* Prevents image highlighting */
+      -webkit-user-drag: none; /* Prevents dragging the image to the desktop */
+    }
       .photo-placeholder {
         height: 100%;
         min-height: 110px;
@@ -320,7 +325,7 @@
       <aside class="sidebar">
 
         <div class="profile-photo">
-          <img src="liuphoto.jpeg" alt="Xinyuan Liu" />
+          <img src="liuphoto.jpeg" alt="Xinyuan Liu" draggable="false" oncontextmenu="return false;" />
         </div>
 
         <div class="sidebar-info">
