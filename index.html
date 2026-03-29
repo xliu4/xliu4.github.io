@@ -194,7 +194,7 @@
     }
     .content .bio {
       font-size: 18px;
-      font-weight: 430;
+      font-weight: 410;
       color: var(--text);
       line-height: 1.85;
     }
@@ -244,11 +244,18 @@
     @media (max-width: 600px) {
       :root { --side-pad: 1.25rem; }
 
+      html {
+        font-size: 16px; 
+      }
+
+      .content .bio {
+        font-weight: 300;
+        
       .layout {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
-
+  
       /* On mobile: photo left, info+links right, side by side */
       .sidebar {
         display: grid;
