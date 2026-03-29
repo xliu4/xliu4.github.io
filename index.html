@@ -241,21 +241,26 @@
     }
 
     /* ── Mobile ── */
+/* ── Mobile ── */
     @media (max-width: 600px) {
       :root { --side-pad: 1.25rem; }
 
+      /* 1. Scale down base font size on mobile */
       html {
         font-size: 16px; 
       }
 
+      /* 2. Adjust bio text boldness */
       .content .bio {
-        font-weight: 300;
-        
+        font-weight: 300; 
+      }
+
+      /* 3. THIS forces the waterfall layout (Sidebar on top, Bio below) */
       .layout {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
-  
+
       /* On mobile: photo left, info+links right, side by side */
       .sidebar {
         display: grid;
@@ -271,16 +276,16 @@
         align-self: start; 
       }
       .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;  
-      /* --- Prevents Saving --- */
-      pointer-events: none; /* Disables right-click and tap interactions */
-      -webkit-touch-callout: none; /* Disables long-press menu on iOS */
-      user-select: none; /* Prevents image highlighting */
-      -webkit-user-drag: none; /* Prevents dragging the image to the desktop */
-    }
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;  
+        /* --- Prevents Saving --- */
+        pointer-events: none; 
+        -webkit-touch-callout: none; 
+        user-select: none; 
+        -webkit-user-drag: none; 
+      }
       .photo-placeholder {
         height: 100%;
         min-height: 110px;
