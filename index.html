@@ -196,7 +196,11 @@
       font-size: 18px;
       font-weight: 410;
       color: var(--text);
-      line-height: 2.0;
+      line-height: 1.85;
+    }
+    .content .bio p {
+      transform: scaleY(1.08); /* Stretches the font vertically by 8% */
+      transform-origin: top left; /* Keeps it aligned properly */
     }
     /* This ensures the first line of text hits the top of the container */
     .bio p:first-child {
