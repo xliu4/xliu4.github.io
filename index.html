@@ -223,7 +223,74 @@
       color: var(--accent-hover);
       border-bottom: 1px solid var(--accent-hover); /* Stronger underline on hover */
     }
+    /* ── News Section ── */
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text);
+      margin-top: 3.5rem; /* Creates space between bio and news */
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
     
+    .news-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: baseline;
+      font-size: 16px; /* Slightly smaller than bio text for contrast */
+      line-height: 1.5;
+    }
+
+    .news-date {
+      flex-shrink: 0;
+      width: 90px; /* Aligns all the dates perfectly */
+      font-family: var(--font-sans);
+      font-weight: 500;
+      color: var(--accent);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .news-text {
+      color: var(--text);
+    }
+    
+    .news-text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(29, 115, 130, 0.2);
+      transition: all 0.15s;
+    }
+
+    .news-text a:hover {
+      color: var(--accent-hover);
+      border-bottom-color: var(--accent-hover);
+    }
+
+    /* ── Mobile adjustments for News ── */
+    @media (max-width: 600px) {
+      .news-item {
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+      .news-date {
+        width: auto;
+        font-size: 12px;
+      }
+      .section-title {
+        margin-top: 2.5rem;
+      }
+    }
     /* ── Footer ── */
     footer {
       border-top: 1px solid var(--border);
@@ -398,13 +465,29 @@
           You can have as many <p> paragraphs as you like.
         ======================================================== -->
         <div class="bio">
-          <p>I am a PhD researcher in human-computer interaction at the Department of Computer Science at Aalborg University, supervised by <a href="https://carlagriggio.com/" target="_blank">Carla Griggio</a> and <a href="https://nielsvanberkel.com/" target="_blank">Niels van Berkel</a>. </p>
-          <p>My current work examines the sociotechnical dynamics of communication and collaboration around healthcare in online ecologies. 
-            I conduct empirical studies to evaluate how people navigate digital ecosystems and their constraints, and the adaptive strategies they develop to maintain (dis)communication within digital health contexts.</p>
+          <p>I am a researcher and strategist focusing on understanding people and the cultural and technical contexts that shape them. <p>
+          <p>Currently, I am a PhD researcher in human-computer interaction at the Department of Computer Science at Aalborg University, supervised by <a href="https://carlagriggio.com/" target="_blank">Carla Griggio</a> and <a href="https://nielsvanberkel.com/" target="_blank">Niels van Berkel</a>. </p>
+          <p>My work examines the sociotechnical dynamics of communication and collaboration around healthcare in online ecologies. 
+            Through empirical studies, I evaluate how people navigate digital ecosystems and their constraints, and the adaptive strategies they develop to maintain (dis)communication within digital health contexts.</p>
           <p>Prior to my PhD, I spent over six years in industry as a senior strategic design researcher, leading human-centered research to shape innovation and inform macro-level strategies for global clients across tech, lifestyle, and beyond. 
             I hold an MA in Intercultural Communication from Shanghai International Studies University, where I focused on computer-mediated communication and interpersonal dynamics.</p>
-          <p>My research is ultimately about understanding people and the cultural and technical contexts that shape them. I am always happy to chat about HCI, CSCW, computer-mediated communication, or really anything related to human behavior. Feel free to reach out.</p>
+          <p>I am always happy to chat about HCI, CSCW, computer-mediated communication, or really anything related to human behavior. Feel free to reach out!</p>
         </div>
+  <h2 class="section-title">Latest News</h2>
+        <ul class="news-list">
+          
+          <li class="news-item">
+            <span class="news-date">Apr 2026</span>
+            <span class="news-text">Attending CHI 2026 in Barcelona (Apr 13-17). Let's meet up around CCIB. </span>
+          </li>
+
+          <li class="news-item">
+            <span class="news-date">June 2025</span>
+            <span class="news-text">Began my doctoral research at Aalborg University Copenhagen, supervised by Carla Griggio and Niels van Berkel.</span>
+          </li>
+
+
+        </ul>
       </section>
 
     </div>
