@@ -34,17 +34,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* --- REVISED COLOR PALETTE --- */
-      --bg:           #F0F2F3; /* Light Heather Grey */
-      --surface:      #FFFFFF;
-      --border:       #D0D5D6; 
+      /* --- JWA SUMMER PALETTE --- */
+      --bg:           #F6F5F2; /* Warm, soft off-white canvas */
+      --surface:      #FFFFFF; /* Pure white for the nav bar to pop slightly */
+      --border:       #B8C8D4; /* Chambray Blue for soft structural lines */
       
-      --text:         #1C2624; /* Dark charcoal */
-      --muted:        #6B7574; 
+      --text:         #3A312B; /* Deep Umber for grounded, readable typography */
+      --muted:        #736B66; /* Lighter umber for secondary text */
       
-      --accent:       #2A5C54; /* Teal - Main Links & Icons */
-      --pop:          #7A3343; /* Burgundy - Top Border & Hovers */
-      /* ----------------------------- */
+      --accent:       #4DA167; /* Grass Green for primary links/icons */
+      --pop:          #E05A44; /* Sporty Orange-Red for highlights and hovers */
+      /* -------------------------- */
 
       --font-serif:   'Lora', Georgia, serif;
       --font-sans:    'DM Sans', sans-serif;
@@ -69,7 +69,6 @@
     nav {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-      border-top: 4px solid var(--pop); /* The Burgundy Collar! */
       position: sticky;
       top: 0;
       z-index: 10;
@@ -86,9 +85,14 @@
       font-family: var(--font-serif);
       font-size: 17px;
       font-weight: 500;
-      color: var(--text); /* Grounded back to dark charcoal */
+      color: var(--text);
       text-decoration: none;
       letter-spacing: 0.01em;
+    }
+    .nav-name .slash {
+      color: var(--pop);
+      margin: 0 3px;
+      font-weight: 400;
     }
 
     /* ── Main ── */
@@ -128,19 +132,6 @@
       object-fit: cover;
       display: block;
     }
-    .photo-placeholder {
-      width: 100%;
-      background: var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      color: var(--muted);
-      text-align: center;
-      padding: 8px;
-      line-height: 1.5;
-      min-height: 200px;
-    }
     .sidebar-info {
       display: flex;
       flex-direction: column;
@@ -170,12 +161,12 @@
       align-items: center;
       gap: 0.6rem;
       font-size: 15px;
-      color: var(--accent); /* Teal icons/links */
+      color: var(--accent); /* Grass Green */
       text-decoration: none;
       transition: color 0.15s;
       line-height: 1.5;
     }
-    .sidebar-link:hover { color: var(--pop); } /* Hovers turn Burgundy */
+    .sidebar-link:hover { color: var(--pop); } /* Orange-Red Hover */
     .sidebar-link i {
       font-size: 15px;
       width: 16px;
@@ -190,6 +181,15 @@
       padding-top: 0.15rem;
       max-width: 800px;
     }
+    
+    .bio-dash {
+      width: 35px;
+      height: 3px;
+      background-color: var(--pop);
+      margin-bottom: 1.5rem;
+      border-radius: 2px;
+    }
+
     .content .bio {
       font-size: 18px;
       font-weight: 400;
@@ -197,6 +197,7 @@
       line-height: 1.65;
     }
     .content .bio p {
+      text-align: justify; /* Aligns text to both left and right margins */
       transform: scaleY(1.04); 
       transform-origin: top left; 
     }
@@ -208,17 +209,18 @@
     }
     
     .bio a {
-      color: var(--accent); /* Teal link */
+      color: var(--accent); 
       text-decoration: none;
       font-weight: 500;
       transition: color 0.15s, border-bottom 0.15s;
-      border-bottom: 1px solid rgba(42, 92, 84, 0.2); 
+      border-bottom: 1px solid rgba(77, 161, 103, 0.25); /* Faded Grass Green underline */
     }
 
     .bio a:hover {
-      color: var(--pop); /* Burgundy hover */
+      color: var(--pop); 
       border-bottom: 1px solid var(--pop);
     }
+    
     /* ── News Section ── */
     .section-title {
       font-family: var(--font-serif);
@@ -251,7 +253,7 @@
       width: 90px; 
       font-family: var(--font-sans);
       font-weight: 500;
-      color: var(--accent); /* Now Teal instead of Burgundy */
+      color: var(--accent); /* Grounded with Grass Green */
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -259,17 +261,18 @@
 
     .news-text {
       color: var(--text);
+      text-align: justify; /* Consistent alignment with bio */
     }
     
     .news-text a {
       color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid rgba(42, 92, 84, 0.2); 
+      border-bottom: 1px solid rgba(77, 161, 103, 0.25); 
       transition: all 0.15s;
     }
 
     .news-text a:hover {
-      color: var(--pop); /* Burgundy hover */
+      color: var(--pop); 
       border-bottom-color: var(--pop);
     }
 
@@ -298,7 +301,7 @@
       margin: 0 auto;
       padding: 1.5rem var(--side-pad); 
     }
-    footer a { color: var(--accent); text-decoration: none; }
+    footer a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
     footer a:hover { color: var(--pop); }
 
     /* ── Fade-in ── */
@@ -354,10 +357,6 @@
         user-select: none; 
         -webkit-user-drag: none; 
       }
-      .photo-placeholder {
-        height: 100%;
-        min-height: 110px;
-      }
       .sidebar-info {
         align-self: end;
       }
@@ -384,7 +383,7 @@
 
   <nav>
     <div class="nav-inner">
-      <a class="nav-name" href="#">Xinyuan Liu</a>
+      <a class="nav-name" href="#">Xinyuan <span class="slash">/</span> Liu</a>
     </div>
   </nav>
 
@@ -428,39 +427,12 @@
       </aside>
 
       <section class="content">
+        
+        <div class="bio-dash"></div>
+
         <div class="bio">
-          <p>I am a researcher and strategist focusing on understanding people and the cultural and technical contexts that shape them. <p>
+          <p>I am a researcher and strategist focusing on understanding people and the cultural and technical contexts that shape them.</p>
           <p>Currently, I am a PhD researcher in human-computer interaction at the Department of Computer Science at Aalborg University, supervised by <a href="https://carlagriggio.com/" target="_blank">Carla Griggio</a> and <a href="https://nielsvanberkel.com/" target="_blank">Niels van Berkel</a>. </p>
           <p>My work examines the sociotechnical dynamics of communication and collaboration around healthcare in online ecologies. 
             Through empirical studies, I evaluate how people navigate digital ecosystems and their constraints, and the adaptive strategies they develop to maintain (dis)communication within digital health contexts.</p>
-          <p>Prior to my PhD, I spent over six years in industry as a senior strategic design researcher, leading human-centered research to shape innovation and inform macro-level strategies for global clients across tech, lifestyle, and beyond. 
-            I hold an MA in Intercultural Communication from Shanghai International Studies University, where I focused on computer-mediated communication and interpersonal dynamics.</p>
-          <p>I am always happy to chat about HCI, CSCW, computer-mediated communication, or really anything related to human behavior. Feel free to reach out!</p>
-        </div>
-  <h2 class="section-title">Latest News</h2>
-        <ul class="news-list">
-          
-          <li class="news-item">
-            <span class="news-date">Apr 2026</span>
-            <span class="news-text">Attending CHI 2026 in Barcelona (Apr 13-17). Let's meet up around CCIB. </span>
-          </li>
-
-          <li class="news-item">
-            <span class="news-date">June 2025</span>
-            <span class="news-text">Began my doctoral research at Aalborg University Copenhagen, supervised by Carla Griggio and Niels van Berkel.</span>
-          </li>
-
-
-        </ul>
-      </section>
-
-    </div>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <p>© 2026 Xinyuan Liu · Aalborg University · <a href="mailto:xliu@cs.aau.dk">xliu@cs.aau.dk</a></p>
-    </div>
-  </footer>
-</body>
-</html>
+          <p>Prior to my PhD, I
