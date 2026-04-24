@@ -34,18 +34,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* --- JWA SUMMER PALETTE --- */
-      --bg:           #F6F5F2; /* Warm, soft off-white canvas */
-      --surface:      #FFFFFF; /* Pure white for the nav bar to pop slightly */
-      --border:       #B8C8D4; /* Chambray Blue for soft structural lines */
-      
-      --text:         #3A312B; /* Deep Umber for grounded, readable typography */
-      --muted:        #736B66; /* Lighter umber for secondary text */
-      
-      --accent:       #4DA167; /* Grass Green for primary links/icons */
-      --pop:          #E05A44; /* Sporty Orange-Red for highlights and hovers */
-      /* -------------------------- */
-
+      --bg:           #FAFAF8;
+      --surface:      #FFFFFF;
+      --border:       #5A8FCE; /* Updated to Sock Blue */
+      --text:         #1A1714;
+      --muted:        #7A7470;
+      --accent:       #9C2738; /* Updated to Sock Burgundy */
+      --accent-hover: #751D2A; /* Darker Burgundy for hover */
       --font-serif:   'Lora', Georgia, serif;
       --font-sans:    'DM Sans', sans-serif;
       --sidebar-w:    210px;
@@ -89,11 +84,11 @@
       text-decoration: none;
       letter-spacing: 0.01em;
     }
-    .nav-name .slash {
-      color: var(--pop);
-      margin: 0 3px;
-      font-weight: 400;
-    }
+    /* Uncomment when ready:
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; margin-left: auto; }
+    .nav-links a { font-size: 15px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--accent); }
+    */
 
     /* ── Main ── */
     main {
@@ -132,6 +127,19 @@
       object-fit: cover;
       display: block;
     }
+    .photo-placeholder {
+      width: 100%;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      padding: 8px;
+      line-height: 1.5;
+      min-height: 200px;
+    }
     .sidebar-info {
       display: flex;
       flex-direction: column;
@@ -161,12 +169,12 @@
       align-items: center;
       gap: 0.6rem;
       font-size: 15px;
-      color: var(--accent); /* Grass Green */
+      color: var(--accent);
       text-decoration: none;
       transition: color 0.15s;
       line-height: 1.5;
     }
-    .sidebar-link:hover { color: var(--pop); } /* Orange-Red Hover */
+    .sidebar-link:hover { color: var(--accent-hover); }
     .sidebar-link i {
       font-size: 15px;
       width: 16px;
@@ -181,15 +189,6 @@
       padding-top: 0.15rem;
       max-width: 800px;
     }
-    
-    .bio-dash {
-      width: 35px;
-      height: 3px;
-      background-color: var(--pop);
-      margin-bottom: 1.5rem;
-      border-radius: 2px;
-    }
-
     .content .bio {
       font-size: 18px;
       font-weight: 400;
@@ -197,10 +196,10 @@
       line-height: 1.65;
     }
     .content .bio p {
-      text-align: justify; /* Aligns text to both left and right margins */
-      transform: scaleY(1.04); 
-      transform-origin: top left; 
+      transform: scaleY(1.04); /* Stretches the font vertically by 8% */
+      transform-origin: top left; /* Keeps it aligned properly */
     }
+    /* This ensures the first line of text hits the top of the container */
     .bio p:first-child {
       margin-top: 0;
     }
@@ -208,26 +207,26 @@
       margin-top: 1.5rem;
     }
     
+    /* Styling links within the bio to match the sidebar */
     .bio a {
-      color: var(--accent); 
+      color: var(--accent);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.15s, border-bottom 0.15s;
-      border-bottom: 1px solid rgba(77, 161, 103, 0.25); /* Faded Grass Green underline */
+      border-bottom: 1px solid rgba(156, 39, 56, 0.2); /* Updated to subtle burgundy */
     }
 
     .bio a:hover {
-      color: var(--pop); 
-      border-bottom: 1px solid var(--pop);
+      color: var(--accent-hover);
+      border-bottom: 1px solid var(--accent-hover); /* Stronger underline on hover */
     }
-    
     /* ── News Section ── */
     .section-title {
       font-family: var(--font-serif);
       font-size: 20px;
       font-weight: 500;
       color: var(--text);
-      margin-top: 3.5rem; 
+      margin-top: 3.5rem; /* Creates space between bio and news */
       margin-bottom: 1.5rem;
       padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
@@ -244,16 +243,16 @@
       display: flex;
       gap: 1.5rem;
       align-items: baseline;
-      font-size: 16px; 
+      font-size: 16px; /* Slightly smaller than bio text for contrast */
       line-height: 1.5;
     }
 
     .news-date {
       flex-shrink: 0;
-      width: 90px; 
+      width: 90px; /* Aligns all the dates perfectly */
       font-family: var(--font-sans);
       font-weight: 500;
-      color: var(--accent); /* Grounded with Grass Green */
+      color: var(--accent);
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -261,19 +260,18 @@
 
     .news-text {
       color: var(--text);
-      text-align: justify; /* Consistent alignment with bio */
     }
     
     .news-text a {
       color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid rgba(77, 161, 103, 0.25); 
+      border-bottom: 1px solid rgba(156, 39, 56, 0.2); /* Updated to subtle burgundy */
       transition: all 0.15s;
     }
 
     .news-text a:hover {
-      color: var(--pop); 
-      border-bottom-color: var(--pop);
+      color: var(--accent-hover);
+      border-bottom-color: var(--accent-hover);
     }
 
     /* ── Mobile adjustments for News ── */
@@ -293,16 +291,16 @@
     /* ── Footer ── */
     footer {
       border-top: 1px solid var(--border);
+      /* We removed the padding from here */
     }
     footer p {
       font-size: 13px;
       color: var(--muted);
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 1.5rem var(--side-pad); 
+      padding: 1.5rem var(--side-pad); /* And moved it here */
     }
-    footer a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
-    footer a:hover { color: var(--pop); }
+    footer a { color: var(--accent); text-decoration: none; }
 
     /* ── Fade-in ── */
     @keyframes fadeUp {
@@ -314,11 +312,13 @@
     @media (max-width: 600px) {
       :root { --side-pad: 1.25rem; }
 
+      /* 1. Scale down base font size on mobile */
       html {
         font-size: 16px;
         line-height: 1.6;
       }
 
+      /* 2. Adjust bio text boldness */
       .content .bio {
         font-weight: 300;
         font-size: 16px;
@@ -329,11 +329,13 @@
         margin-top: 1.6rem; 
       }
       
+      /* 3. THIS forces the waterfall layout (Sidebar on top, Bio below) */
       .layout {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
 
+      /* On mobile: photo left, info+links right, side by side */
       .sidebar {
         display: grid;
         grid-template-columns: 130px 1fr;
@@ -352,10 +354,15 @@
         height: 100%;
         object-fit: cover;
         display: block;  
+        /* --- Prevents Saving --- */
         pointer-events: none; 
         -webkit-touch-callout: none; 
         user-select: none; 
         -webkit-user-drag: none; 
+      }
+      .photo-placeholder {
+        height: 100%;
+        min-height: 110px;
       }
       .sidebar-info {
         align-self: end;
@@ -383,8 +390,8 @@
 
   <nav>
     <div class="nav-inner">
-      <a class="nav-name" href="#">Xinyuan <span class="slash">/</span> Liu</a>
-    </div>
+      <a class="nav-name" href="#">Xinyuan Liu</a>
+      </div>
   </nav>
 
   <main>
@@ -427,12 +434,39 @@
       </aside>
 
       <section class="content">
-        
-        <div class="bio-dash"></div>
-
         <div class="bio">
-          <p>I am a researcher and strategist focusing on understanding people and the cultural and technical contexts that shape them.</p>
+          <p>I am a researcher and strategist focusing on understanding people and the cultural and technical contexts that shape them. <p>
           <p>Currently, I am a PhD researcher in human-computer interaction at the Department of Computer Science at Aalborg University, supervised by <a href="https://carlagriggio.com/" target="_blank">Carla Griggio</a> and <a href="https://nielsvanberkel.com/" target="_blank">Niels van Berkel</a>. </p>
           <p>My work examines the sociotechnical dynamics of communication and collaboration around healthcare in online ecologies. 
             Through empirical studies, I evaluate how people navigate digital ecosystems and their constraints, and the adaptive strategies they develop to maintain (dis)communication within digital health contexts.</p>
-          <p>Prior to my PhD, I
+          <p>Prior to my PhD, I spent over six years in industry as a senior strategic design researcher, leading human-centered research to shape innovation and inform macro-level strategies for global clients across tech, lifestyle, and beyond. 
+            I hold an MA in Intercultural Communication from Shanghai International Studies University, where I focused on computer-mediated communication and interpersonal dynamics.</p>
+          <p>I am always happy to chat about HCI, CSCW, computer-mediated communication, or really anything related to human behavior. Feel free to reach out!</p>
+        </div>
+  <h2 class="section-title">Latest News</h2>
+        <ul class="news-list">
+          
+          <li class="news-item">
+            <span class="news-date">Apr 2026</span>
+            <span class="news-text">Attending CHI 2026 in Barcelona (Apr 13-17). Let's meet up around CCIB. </span>
+          </li>
+
+          <li class="news-item">
+            <span class="news-date">June 2025</span>
+            <span class="news-text">Began my doctoral research at Aalborg University Copenhagen, supervised by Carla Griggio and Niels van Berkel.</span>
+          </li>
+
+
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 Xinyuan Liu · Aalborg University · <a href="mailto:xliu@cs.aau.dk">xliu@cs.aau.dk</a></p>
+    </div>
+  </footer>
+</body>
+</html>
