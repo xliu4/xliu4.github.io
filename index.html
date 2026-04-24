@@ -21,9 +21,6 @@
   ]
 }
 </script>
-  <!-- ========================================================
-    REPLACE: Update the title below with your actual name
-  ======================================================== -->
   <title>Xinyuan Liu - HCI</title>
   <meta name="description" content="Xinyuan Liu is a PhD researcher at Aalborg University specializing in HCI, CSCW, and healthcare communication. Exploring sociotechnical dynamics in online health ecologies.">
   <meta name="keywords" content="Xinyuan Liu, HCI, CSCW, Health Communication, Aalborg University, Human-Computer Interaction, Design Research">
@@ -31,20 +28,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome 6 for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:           #FAFAF8;
+      /* --- REVISED COLOR PALETTE --- */
+      --bg:           #F0F2F3; /* Light Heather Grey */
       --surface:      #FFFFFF;
-      --border:       #E5E0D8;
-      --text:         #1A1714;
-      --muted:        #7A7470;
-      --accent:       #1d7382;
-      --accent-hover: #1e2b38;
+      --border:       #D0D5D6; 
+      
+      --text:         #1C2624; /* Dark charcoal */
+      --muted:        #6B7574; 
+      
+      --accent:       #2A5C54; /* Teal - Main Links & Icons */
+      --pop:          #7A3343; /* Burgundy - Top Border & Hovers */
+      /* ----------------------------- */
+
       --font-serif:   'Lora', Georgia, serif;
       --font-sans:    'DM Sans', sans-serif;
       --sidebar-w:    210px;
@@ -68,6 +69,7 @@
     nav {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
+      border-top: 4px solid var(--pop); /* The Burgundy Collar! */
       position: sticky;
       top: 0;
       z-index: 10;
@@ -84,15 +86,10 @@
       font-family: var(--font-serif);
       font-size: 17px;
       font-weight: 500;
-      color: var(--text);
+      color: var(--text); /* Grounded back to dark charcoal */
       text-decoration: none;
       letter-spacing: 0.01em;
     }
-    /* Uncomment when ready:
-    .nav-links { display: flex; gap: 1.75rem; list-style: none; margin-left: auto; }
-    .nav-links a { font-size: 15px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
-    .nav-links a:hover { color: var(--accent); }
-    */
 
     /* ── Main ── */
     main {
@@ -173,12 +170,12 @@
       align-items: center;
       gap: 0.6rem;
       font-size: 15px;
-      color: var(--accent);
+      color: var(--accent); /* Teal icons/links */
       text-decoration: none;
       transition: color 0.15s;
       line-height: 1.5;
     }
-    .sidebar-link:hover { color: var(--accent-hover); }
+    .sidebar-link:hover { color: var(--pop); } /* Hovers turn Burgundy */
     .sidebar-link i {
       font-size: 15px;
       width: 16px;
@@ -200,10 +197,9 @@
       line-height: 1.65;
     }
     .content .bio p {
-      transform: scaleY(1.04); /* Stretches the font vertically by 8% */
-      transform-origin: top left; /* Keeps it aligned properly */
+      transform: scaleY(1.04); 
+      transform-origin: top left; 
     }
-    /* This ensures the first line of text hits the top of the container */
     .bio p:first-child {
       margin-top: 0;
     }
@@ -211,18 +207,17 @@
       margin-top: 1.5rem;
     }
     
-    /* Styling links within the bio to match the sidebar */
     .bio a {
-      color: var(--accent);
+      color: var(--accent); /* Teal link */
       text-decoration: none;
       font-weight: 500;
       transition: color 0.15s, border-bottom 0.15s;
-      border-bottom: 1px solid rgba(79, 109, 138, 0.2); /* Subtle underline */
+      border-bottom: 1px solid rgba(42, 92, 84, 0.2); 
     }
 
     .bio a:hover {
-      color: var(--accent-hover);
-      border-bottom: 1px solid var(--accent-hover); /* Stronger underline on hover */
+      color: var(--pop); /* Burgundy hover */
+      border-bottom: 1px solid var(--pop);
     }
     /* ── News Section ── */
     .section-title {
@@ -230,7 +225,7 @@
       font-size: 20px;
       font-weight: 500;
       color: var(--text);
-      margin-top: 3.5rem; /* Creates space between bio and news */
+      margin-top: 3.5rem; 
       margin-bottom: 1.5rem;
       padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
@@ -247,16 +242,16 @@
       display: flex;
       gap: 1.5rem;
       align-items: baseline;
-      font-size: 16px; /* Slightly smaller than bio text for contrast */
+      font-size: 16px; 
       line-height: 1.5;
     }
 
     .news-date {
       flex-shrink: 0;
-      width: 90px; /* Aligns all the dates perfectly */
+      width: 90px; 
       font-family: var(--font-sans);
       font-weight: 500;
-      color: var(--accent);
+      color: var(--accent); /* Now Teal instead of Burgundy */
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -269,13 +264,13 @@
     .news-text a {
       color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid rgba(29, 115, 130, 0.2);
+      border-bottom: 1px solid rgba(42, 92, 84, 0.2); 
       transition: all 0.15s;
     }
 
     .news-text a:hover {
-      color: var(--accent-hover);
-      border-bottom-color: var(--accent-hover);
+      color: var(--pop); /* Burgundy hover */
+      border-bottom-color: var(--pop);
     }
 
     /* ── Mobile adjustments for News ── */
@@ -295,16 +290,16 @@
     /* ── Footer ── */
     footer {
       border-top: 1px solid var(--border);
-      /* We removed the padding from here */
     }
     footer p {
       font-size: 13px;
       color: var(--muted);
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 1.5rem var(--side-pad); /* And moved it here */
+      padding: 1.5rem var(--side-pad); 
     }
     footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { color: var(--pop); }
 
     /* ── Fade-in ── */
     @keyframes fadeUp {
@@ -313,17 +308,14 @@
     }
 
     /* ── Mobile ── */
-/* ── Mobile ── */
     @media (max-width: 600px) {
       :root { --side-pad: 1.25rem; }
 
-      /* 1. Scale down base font size on mobile */
       html {
         font-size: 16px;
         line-height: 1.6;
       }
 
-      /* 2. Adjust bio text boldness */
       .content .bio {
         font-weight: 300;
         font-size: 16px;
@@ -334,13 +326,11 @@
         margin-top: 1.6rem; 
       }
       
-      /* 3. THIS forces the waterfall layout (Sidebar on top, Bio below) */
       .layout {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
 
-      /* On mobile: photo left, info+links right, side by side */
       .sidebar {
         display: grid;
         grid-template-columns: 130px 1fr;
@@ -359,7 +349,6 @@
         height: 100%;
         object-fit: cover;
         display: block;  
-        /* --- Prevents Saving --- */
         pointer-events: none; 
         -webkit-touch-callout: none; 
         user-select: none; 
@@ -395,24 +384,13 @@
 
   <nav>
     <div class="nav-inner">
-      <!-- ========================================================
-        REPLACE: Your full name in the nav bar
-      ======================================================== -->
       <a class="nav-name" href="#">Xinyuan Liu</a>
-      <!-- Uncomment when you have content for these pages:
-      <ul class="nav-links">
-        <li><a href="#">Research</a></li>
-        <li><a href="#">Publications</a></li>
-        <li><a href="#">CV</a></li>
-      </ul>
-      -->
     </div>
   </nav>
 
   <main>
     <div class="layout">
 
-      <!-- ── Sidebar ── -->
       <aside class="sidebar">
 
         <div class="profile-photo">
@@ -420,21 +398,11 @@
         </div>
 
         <div class="sidebar-info">
-          <!-- ========================================================
-            REPLACE: Your name and role/affiliation below
-          ======================================================== -->
           <p class="sidebar-name">Xinyuan Liu</p>
           <p class="sidebar-role">PhD Researcher<br>Aalborg University<br>Copenhagen, Denmark</p>
         </div>
 
         <div class="sidebar-links">
-          <!-- ========================================================
-            REPLACE each href with your actual links:
-            - mailto:   your email address
-            - scholar:  your Google Scholar profile URL
-            - linkedin: your LinkedIn profile URL
-            - bluesky:  your Bluesky profile URL
-          ======================================================== -->
           <a class="sidebar-link" href="mailto:xliu@cs.aau.dk">
             <i class="fas fa-envelope"></i>
             <span>Email</span>
@@ -459,12 +427,7 @@
 
       </aside>
 
-      <!-- ── Bio ── -->
       <section class="content">
-        <!-- ========================================================
-          REPLACE: Write your bio here.
-          You can have as many <p> paragraphs as you like.
-        ======================================================== -->
         <div class="bio">
           <p>I am a researcher and strategist focusing on understanding people and the cultural and technical contexts that shape them. <p>
           <p>Currently, I am a PhD researcher in human-computer interaction at the Department of Computer Science at Aalborg University, supervised by <a href="https://carlagriggio.com/" target="_blank">Carla Griggio</a> and <a href="https://nielsvanberkel.com/" target="_blank">Niels van Berkel</a>. </p>
@@ -499,3 +462,5 @@
       <p>© 2026 Xinyuan Liu · Aalborg University · <a href="mailto:xliu@cs.aau.dk">xliu@cs.aau.dk</a></p>
     </div>
   </footer>
+</body>
+</html>
